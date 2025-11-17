@@ -450,41 +450,6 @@ For issues or questions:
 2. Review logs: `podman-compose logs -f`
 3. Verify installation: `podman-compose ps`
 
-## Key Features and Improvements
-
-### Version Updates
-- **PostgreSQL**: Upgraded from 14 to **15**
-- **Redis**: Upgraded from 6.2 to **7.2-alpine**
-
-### Certificate Improvements
-- **10-year validity** instead of 100 years (more realistic)
-- **Dual-purpose server certificates** with both `serverAuth` and `clientAuth`
-- **Separate client certificates** for application use
-- **Correct CN values** (`ca.localhost` for CA, `localhost` for server/client)
-- **Subject Alternative Names** for all certificates
-- **Proper extended key usage** for mutual TLS authentication
-
-### Permission Management
-- **Automated podman unshare** for file ownership
-- **Correct UIDs** for rootless containers (999 for Redis, 65534 for Twemproxy)
-- **Proper permissions** for all config files and certificates
-
-### Port Changes
-- **Redis password-protected**: Moved from 6379 to **6385** (avoids conflicts)
-
-### User Experience
-- **Accepts y/n** in addition to yes/no for prompts
-- **Better path handling** for installation directory
-- **Colored output** with working ANSI codes
-- **Clear service categorization** in output messages
-
-### TLS Configuration
-- **tls-auth-clients: optional** - allows flexible mutual TLS
-- **Hostname verification** works out of the box
-- **Inter-sentinel communication** over TLS
-- **Master-replica replication** over TLS
-- **Application connections** properly separated with client certs
-
 ## Additional Resources
 
 - **Podman Documentation**: https://docs.podman.io
